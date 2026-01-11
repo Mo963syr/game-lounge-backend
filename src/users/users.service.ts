@@ -18,8 +18,11 @@ export class UsersService {
   }
 
   findAll() {
-    return this.userModel.find();
+    return this.userModel.find().select('-password');
   }
+async findCurrentUser(userId: string) {
+  return this.userModel.findById(userId).select('-password');
+}
 
   findOne(id: string) {
     return this.userModel.findById(id);
