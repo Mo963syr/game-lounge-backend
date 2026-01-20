@@ -1,4 +1,3 @@
-
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { StoresService } from './stores.service';
@@ -7,9 +6,8 @@ import { Store, StoreSchema } from './schemas/store.schema';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([
-      { name: Store.name, schema: StoreSchema },
-    ]),
+    // تسجيل الـ Schema في هذا الموديول
+    MongooseModule.forFeature([{ name: Store.name, schema: StoreSchema }]),
   ],
   controllers: [StoresController],
   providers: [StoresService],
