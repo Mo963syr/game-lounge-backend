@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Table, TableDocument } from './table.schema';
-import { CreateTableDto } from './dto/create-table.dto';
-import { UpdateTableDto } from './dto/update-table.dto';
+import { CreateTableDto } from '../stores/dto/create-table.dto';
+import { UpdateTableDto } from '../stores/dto/update-table.dto';
 
 @Injectable()
 export class TablesService {

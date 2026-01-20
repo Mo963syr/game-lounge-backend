@@ -8,6 +8,7 @@ import { UsersModule } from './users/users.module';
 import { ScreensModule } from './screens/screens.module';
 import { TablesModule } from './tables/tables.module';
 import { StoresModule } from './stores/stores.module';
+
 import { SessionsModule } from './sessions/sessions.module';
 
 @Module({
