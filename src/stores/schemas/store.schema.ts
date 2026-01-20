@@ -3,25 +3,28 @@ import { Document } from 'mongoose';
 
 export type StoreDocument = Store & Document;
 
-@Schema({ timestamps: true })
+@Schema({ timestamps: true }) // يضيف تاريخ الإنشاء والتعديل تلقائياً
 export class Store {
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true }) // الاسم فريد ومطلوب
   name: string;
 
-  @Prop({ required: true })
+  @Prop()
   location: string;
 
-  @Prop({ required: true })
+  @Prop()
+  storeLogo: string;
+
+  @Prop({ default: 'SYP' }) // العملة الافتراضية
   currency: string;
 
-  @Prop({ required: true, min: 0 })
+  @Prop({ default: 0 }) // سعر الساعة الافتراضي
   defaultHourlyPrice: number;
 
-  @Prop({ default: null })
-  image: string;
-
-  @Prop({ default: true })
+  @Prop({ default: true }) // حالة المتجر: نشط أم لا
   isActive: boolean;
+
+  @Prop({ default: false }) // للحذف الناعم (Soft Delete)
+  isDeleted: boolean;
 }
 
 export const StoreSchema = SchemaFactory.createForClass(Store);
