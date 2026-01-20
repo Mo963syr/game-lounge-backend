@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
+import { User } from '../users/user.schema';
 
 export type ScreenDocument = Screen & Document;
 
@@ -17,8 +18,8 @@ export class Screen {
   @Prop({ default: 'available', enum: ['available', 'busy'] })
   status: string;
 
-  @Prop({ required: true })
-  storeId: string;
+  @Prop({ type: Types.ObjectId, ref: 'User' })
+  storeId: Types.ObjectId;
 }
 
 export const ScreenSchema = SchemaFactory.createForClass(Screen);

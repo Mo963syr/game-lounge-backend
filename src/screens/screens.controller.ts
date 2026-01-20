@@ -9,7 +9,7 @@ export class ScreensController {
 
   @Post()
   create(@Body() dto: CreateScreenDto) {
-    dto.storeId = '201739361870024';
+    // dto.storeId = '201739361870024';
     return this.screensService.create(dto);
   }
 

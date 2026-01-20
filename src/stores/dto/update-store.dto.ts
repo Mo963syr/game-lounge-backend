@@ -1,6 +1,4 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateStoreDto } from './create-store.dto';
 
-export class UpdateStoreDto extends PartialType(CreateStoreDto) {
-  isActive?: boolean; // نضيف إمكانية تفعيل/تعطيل المتجر عند التعديل
-}
+export class UpdateStoreDto extends PartialType(CreateStoreDto) {}
